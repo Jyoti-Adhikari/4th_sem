@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4285F4;
+            color: white;
+            padding: 20px 20px ;
+            display: flex;
+            justify-content: space-between;
+           
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        main {
+            display: flex;
+            padding: 20px;
+        }
+        .panel {
+            flex: 1;
+            padding: 20px;
+            margin-right: 10px;
+            height: 70vh;
+        }
+        footer {
+            background-color: #4285F4;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #l_panel{
+            background-color: aqua;
+
+        }
+        #c_panel{
+            background-color: aquamarine;
+        }
+        #r_panel{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="pk.png" alt="PK collage logo" height="24">
+        </div>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </header>
+   <main>
+        <div class="panel" id="l_panel">
+            <h2>Left Panel</h2>
+            
+        </div>
+        <div class="panel" id="c_panel">
+            <h2>Center Panel</h2>
+            
+        </div>
+        <div class="panel" id="r_panel">
+            <h2>Right Panel</h2>
+            
+        </div>
+    </main>
+    <footer>
+        <p>Copyright © 2024 My Website. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
