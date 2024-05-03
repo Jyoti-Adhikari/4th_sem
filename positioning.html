@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(187, 164, 192);
+            padding-bottom: 200px; 
+        }
+
+
+        .sticky-element {
+            position: -webkit-sticky; 
+            position: sticky;
+            top: 10px;
+            background-color: rgb(219, 224, 158);
+            color: rgb(112, 117, 16);
+            padding: 20px;
+            /* float: left; */
+            z-index: 998;
+        }
+
+        .relative-element {
+            position: relative;
+            top: 10px;
+            background-color: rgb(197, 222, 197);
+            color: rgb(14, 81, 14);
+            padding: 20px;
+            /* float: right; */
+        }
+
+        .fixed-element {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color:rgb(164, 164, 229);
+            color: rgb(38, 38, 138);
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="sticky-element">Sticky Element</div>
+        <div class="relative-element">Relative Element</div>
+        <div class="content">
+           
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat metus eu justo vestibulum fermentum.</p>
+            <p>Phasellus euismod aliquam purus eget faucibus. Nulla facilisi. Duis quis turpis non mi condimentum sollicitudin.</p>
+            <p>Nullam posuere justo eget nulla fringilla, sit amet cursus erat tincidunt. Proin et urna et sapien rutrum euismod. Duis bibendum gravida nisi nec semper. Aliquam erat volutpat. Ut aliquam mauris sit amet justo fermentum gravida.</p>
+            <p>Quisque non turpis auctor, fermentum mauris ac, lacinia est. Fusce nec leo nec mi posuere eleifend ac vitae libero. Fusce commodo sapien vitae justo accumsan, eget feugiat lectus vestibulum. Nulla facilisi. Aenean non nisi vel lorem viverra faucibus.</p>
+            <p>Nullam vitae turpis id ipsum bibendum convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed iaculis odio nec risus fermentum, a eleifend lorem scelerisque. Nulla vehicula arcu nec nulla fermentum, in pharetra lorem ultricies.</p>
+            <p>Quisque sed purus in lorem interdum sodales. Proin ut est eu nisl hendrerit vulputate. Duis aliquet rhoncus purus id elementum. Sed id nunc ac metus maximus euismod non nec nisi.</p>
+            <p>Suspendisse potenti. Vestibulum nec lorem vitae lacus faucibus varius nec et risus. Maecenas sed nunc nec orci sodales ullamcorper nec sit amet eros. Sed feugiat, orci sit amet placerat bibendum, orci purus volutpat justo, ut faucibus ipsum mauris a magna.</p>
+            <p>Quisque et sapien sit amet nulla faucibus mollis a at nisi. Sed id mi vel eros vehicula aliquam non id tortor. Integer pharetra, lorem nec laoreet efficitur, leo velit condimentum quam, id maximus magna lorem a diam. Phasellus hendrerit finibus eros, eu pulvinar justo. Ut non lacus nec quam placerat molestie.</p>
+            <p>Suspendisse potenti. Vestibulum nec lorem vitae lacus faucibus varius nec et risus. Maecenas sed nunc nec orci sodales ullamcorper nec sit amet eros. Sed feugiat, orci sit amet placerat bibendum, orci purus volutpat justo, ut faucibus ipsum mauris a magna.</p>
+            <p>Quisque et sapien sit amet nulla faucibus mollis a at nisi. Sed id mi vel eros vehicula aliquam non id tortor. Integer pharetra, lorem nec laoreet efficitur, leo velit condimentum quam, id maximus magna lorem a diam. Phasellus hendrerit finibus eros, eu pulvinar justo. Ut non lacus nec quam placerat molestie.</p>
+            
+        </div>
+        <div class="fixed-element">Fixed Element</div>
+    </div>
+</body>
+</html>
