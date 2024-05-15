@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label >
+            <input type="text" placeholder="Search anything" id="searchInput" oninput="highlightParagraph()"/>
+        </label>
+    </div>
+    <div>
+        <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus fugiat animi culpa omnis, incidunt quidem consequatur sit molestiae quo excepturi minus necessitatibus dolor voluptatem? Soluta minima et voluptatum illum!</p>
+    </div>
+
+    <script>
+        function highlightParagraph() {
+            let input = document.getElementById('searchInput').value;
+            let paragraph = document.getElementById('paragraph');
+            let searchText = "abc";
+
+            if (input.includes(searchText)) {
+                paragraph.classList.add('highlight');
+            } else {
+                paragraph.classList.remove('highlight');
+            }
+        }
+    </script>
+</body>
+</html>
+ 
