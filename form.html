@@ -27,47 +27,52 @@
             margin-bottom: 15px;
         }
 
-   
         label {
             display: inline-block;
             width: 120px;
             font-weight: bold;
         }
 
+        .error {
+            color: red;
+        }
+
     </style>   
 </head>
 <body>
-    <form action="/action.php">
+    <form id="myForm" action="/action.php" onsubmit="return validateForm()">
         
         <div class="all" id="uname">
             <label>Username</label>
-            <input type="text" name="Username" placeholder="Type something here">
+            <input type="text" id="username" name="Username" placeholder="Type something here">
+            <span id="usernameError" class="error"></span>
         </div>
 
-         <div class="all" id="ename">
+        <div class="all" id="ename">
             <label>Email</label>
-            <input type="text" name="Email" placeholder="Type your Email">
+            <input type="text" id="email" name="Email" placeholder="Type your Email">
+            <span id="emailError" class="error"></span>
         </div>
 
-         <div class="all" id="pname">
+        <div class="all" id="pname">
             <label>Your Password</label>
             <input type="password" placeholder="Password">
-         </div>
+        </div>
 
         <div class="all" id="s_class">
-           <label for="101">Select Your calss</label>
-           <input type="radio" value="class XI" name="class" id="101"> class XI
-           <input type="radio" value="class XII" name="class" id="102"> class XII
+            <label for="101">Select Your class</label>
+            <input type="radio" value="class XI" name="class" id="101"> class XI
+            <input type="radio" value="class XII" name="class" id="102"> class XII
         </div>
 
         <div class="all" id="s_subject">
-            <label>Select your sujects</label>
-            <input type="checkbox" value="maths" name="suject" id="101"> maths
-            <input type="checkbox" value="physics" name="suject" id="102"> physics
-            <input type="checkbox" value="chimestry" name="suject" id="103"> chemistry
+            <label>Select your subjects</label>
+            <input type="checkbox" value="maths" name="subject" id="101"> maths
+            <input type="checkbox" value="physics" name="subject" id="102"> physics
+            <input type="checkbox" value="chemistry" name="subject" id="103"> chemistry
         </div>
      
-         <div class="all" id="s_city">
+        <div class="all" id="s_city">
             <label> Select your city</label>
             <select name="city">
                 <option value="KTM">KTM</option>
@@ -77,10 +82,47 @@
             </select>
         </div>
     
-        <div class="all" >
+        <div class="all">
             <input type="submit" value="Submit" id="submit">
         </div>
 
     </form>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var usernameError = document.getElementById('usernameError');
+            var emailError = document.getElementById('emailError');
+            var isValid = true;
+
+            // Username validation
+            if (username.trim() === '') {
+                usernameError.textContent = 'Username is required';
+                isValid = false;
+            } else {
+                usernameError.textContent = '';
+            }
+
+            // Email validation
+            if (email.trim() === '') {
+                emailError.textContent = 'Email is required';
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                emailError.textContent = 'Invalid email format';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            return isValid;
+        }
+
+        // Function to validate email format
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
 </body>
 </html>
