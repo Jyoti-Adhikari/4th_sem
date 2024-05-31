@@ -24,7 +24,7 @@
 <div class="container">
     <?php
     for ($i = 1; $i <= 30; $i++) {
-        echo "<div class='box'>Box $i</div>";
+        echo "<div class='box'>Day $i</div>";
     }
     ?>
 </div>
