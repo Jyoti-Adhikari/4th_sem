@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowers</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #7c9ca5;
+        }
+
+        #slider {
+            width: 80%;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        #flower {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #flower img {
+            height: 400px; /* Adjust the height as needed */
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .controls {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            border: none;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+
+        .controls button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div id="slider">
+        <div id="flower">
+            <img src="/pics/j-lee-yRXuXvy4sQ4-unsplash.jpg" alt="flower">
+            <img src="/pics/kwang-mathurosemontri-fY1ECB1RCd0-unsplash.jpg" alt="flower">
+            <img src="/pics/marivi-pazos-4kX1uoAAohY-unsplash.jpg" alt="flower">
+            <img src="/pics/olia-gozha-9A_peGrSbZc-unsplash.jpg" alt="flower">
+            <img src="/pics/amy-humphries-S5wUMrXdq1M-unsplash.jpg" alt="flower">
+            <img src="/pics/annie-spratt-4wz1YsANFB0-unsplash.jpg" alt="flower">
+            <img src="/pics/annie-spratt-e92dhXE8PUg-unsplash.jpg" alt="flower">
+            <img src="/pics/gerome-bruneau-RPmWEtZLh7U-unsplash.jpg" alt="flower">
+            <img src="/pics/rikonavt-oEWdQsbRVZk-unsplash.jpg" alt="flower">
+            <img src="/pics/ryunosuke-kikuno-cFxUZ7UAf-c-unsplash.jpg" alt="flower">
+            <img src="/pics/joanna-kosinska-ToV0rS9nTYs-unsplash.jpg" alt="flower">
+            <img src="/pics/saffu-Ct1Mx5OTn9A-unsplash.jpg" alt="flower">
+            <img src="/pics/tavin-dotson-WC4IWN3-fSo-unsplash.jpg" alt="flower">
+            <img src="/pics/tuan-nguy-n-minh-pGr7g4l8EOI-unsplash.jpg" alt="flower">
+        </div>
+        <div class="controls">
+            <button id="prev">&#9664;</button>
+            <button id="next">&#9654;</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            var $slider = $('#slider');
+            var $flower = $('#flower');
+            var $images = $('#flower img');
+            var imageWidth = $images.width();
+            var currentIndex = 0;
+
+            $('#next').on('click', function(){
+                if (currentIndex < $images.length - 1) {
+                    currentIndex++;
+                    $flower.css('transform', 'translateX(' + (-imageWidth * currentIndex) + 'px)');
+                }
+            });
+
+            $('#prev').on('click', function(){
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    $flower.css('transform', 'translateX(' + (-imageWidth * currentIndex) + 'px)');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(137, 170, 173);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+        }
+
+        form {
+            background-color: rgb(153, 129, 150);
+            padding: 20px;
+            width: 400px;
+            
+        }
+
+        .all {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+        }
+
+    </style>   
+</head>
+<body>
+    <form id="myForm" action="/action.php" onsubmit="return validateForm()">
+        
+        <div class="all" id="uname">
+            <label>Username</label>
+            <input type="text" id="username" name="Username" placeholder="Type something here">
+            <span id="usernameError" class="error"></span>
+        </div>
+
+        <div class="all" id="ename">
+            <label>Email</label>
+            <input type="text" id="email" name="Email" placeholder="Type your Email">
+            <span id="emailError" class="error"></span>
+        </div>
+
+        <div class="all" id="pname">
+            <label>Your Password</label>
+            <input type="password" placeholder="Password">
+        </div>
+
+        <div class="all" id="s_class">
+            <label for="101">Select Your class</label>
+            <input type="radio" value="class XI" name="class" id="101"> class XI
+            <input type="radio" value="class XII" name="class" id="102"> class XII
+        </div>
+
+        <div class="all" id="s_subject">
+            <label>Select your subjects</label>
+            <input type="checkbox" value="maths" name="subject" id="101"> maths
+            <input type="checkbox" value="physics" name="subject" id="102"> physics
+            <input type="checkbox" value="chemistry" name="subject" id="103"> chemistry
+        </div>
+     
+        <div class="all" id="s_city">
+            <label> Select your city</label>
+            <select name="city">
+                <option value="KTM">KTM</option>
+                <option value="Lamjung">Lamjung</option>
+                <option value="Lalitpur">Lalitpur</option>
+                <option value="Chitwan">Chitwan</option>
+            </select>
+        </div>
+    
+        <div class="all">
+            <input type="submit" value="Submit" id="submit">
+        </div>
+
+    </form>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var usernameError = document.getElementById('usernameError');
+            var emailError = document.getElementById('emailError');
+            var isValid = true;
+
+            // Username validation
+            if (username.trim() === '') {
+                usernameError.textContent = 'Username is required';
+                isValid = false;
+            } else {
+                usernameError.textContent = '';
+            }
+
+            // Email validation
+            if (email.trim() === '') {
+                emailError.textContent = 'Email is required';
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                emailError.textContent = 'Invalid email format';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            return isValid;
+        }
+
+        // Function to validate email format
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>

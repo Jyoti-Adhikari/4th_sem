@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preloader</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .preloader .circle {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+        .preloader .circle div {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+        .preloader .circle div:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0s;
+        }
+        .preloader .circle div:nth-child(2) {
+            top: 25%;
+            left: 85%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0.1s;
+        }
+        .preloader .circle div:nth-child(3) {
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0.2s;
+        }
+        .preloader .circle div:nth-child(4) {
+            top: 75%;
+            left: 85%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0.3s;
+        }
+        .preloader .circle div:nth-child(5) {
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0.4s;
+        }
+        .preloader .circle div:nth-child(6) {
+            top: 75%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0.5s;
+        }
+        .preloader .circle div:nth-child(7) {
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            animation-delay: 0.6s;
+        }
+        .preloader .circle div:nth-child(8) {
+            top: 25%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0.7s;
+        }
+        @keyframes spin {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        .content {
+            display: none;
+        }
+        .loaded .preloader {
+            display: none;
+        }
+        .loaded .content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div class="circle">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="content">
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius omnis sapiente aperiam consectetur dolore hic consequuntur neque suscipit? Cumque magnam minima doloremque eveniet! Sapiente cupiditate qui voluptate id, dicta quia.</p>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
